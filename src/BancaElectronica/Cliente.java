@@ -87,7 +87,7 @@ public class Cliente implements ServicioCuentas, Comparable<Cliente> {
     }
     /* toString */
     public String toString() {
-        return "Cliente: " + numero + " " +  nombre ;
+        return "Cliente: " + numero + " " +  nombre + " " + telefono;
     }
 
 

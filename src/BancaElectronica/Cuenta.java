@@ -1,6 +1,5 @@
 package BancaElectronica;
 
-import java.time.Instant;
 
 public abstract class  Cuenta implements Comparable<Cuenta> {
     private int numero;
@@ -11,6 +10,12 @@ public abstract class  Cuenta implements Comparable<Cuenta> {
     public Cuenta(int numero, double saldo) {
         this.numero = numero;
         this.saldo = saldo;
+    }
+
+    public Cuenta(int numero, double saldo, String fechaApertura) {
+        this.numero = numero;
+        this.saldo = saldo;
+        this.fechaApertura = fechaApertura;
     }
 
     public int getNumero() {

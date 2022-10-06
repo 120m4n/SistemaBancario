@@ -4,16 +4,16 @@ import static BancaElectronica.Utilities.generateRandomStreet;
 
 public class Domicilio {
     private String calle;
-    private String numero;
+    private int numero;
     private String colonia;
     private String estado;
-    private String codigoPostal;
+    private int codigoPostal;
 
     public Domicilio(){
      this.calle = generateRandomStreet();
     }
 
-    public Domicilio(String calle, String numero, String colonia, String estado, String codigoPostal) {
+    public Domicilio(String calle, int numero, String colonia, String estado, int codigoPostal) {
         this.calle = calle;
         this.numero = numero;
         this.colonia = colonia;
@@ -31,11 +31,11 @@ public class Domicilio {
         this.calle = calle;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
@@ -55,11 +55,11 @@ public class Domicilio {
         this.estado = estado;
     }
 
-    public String getCodigoPostal() {
+    public int getCodigoPostal() {
         return codigoPostal;
     }
 
-    public void setCodigoPostal(String codigoPostal) {
+    public void setCodigoPostal(int codigoPostal) {
         this.codigoPostal = codigoPostal;
     }
     /*

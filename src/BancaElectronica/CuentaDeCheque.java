@@ -9,6 +9,11 @@ public class CuentaDeCheque extends Cuenta {
         this.costoManejoMensual = costoManejoMensual;
     }
 
+    public CuentaDeCheque(int numero, double saldo, double costoManejoMensual, String fechaApertura) {
+        super(numero, saldo, fechaApertura);
+        this.costoManejoMensual = costoManejoMensual;
+    }
+
     public double getCostoManejoMensual() {
         return costoManejoMensual;
     }
@@ -16,7 +21,8 @@ public class CuentaDeCheque extends Cuenta {
     /* toString() */
     @Override
     public String toString() {
-        return "CuentaDeCheque{" + "saldo=" + getSaldo() + '}';
+
+        return "CuentaDeCheque{numero=" + getNumero() + ", "  + "saldo=" + getSaldo() + '}';
     }
 
     @Override
