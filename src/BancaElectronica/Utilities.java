@@ -112,16 +112,7 @@ public class Utilities {
 
     }
 
-    public static String getRFC(String nombre, String apellidoPaterno, String apellidoMaterno, String fechaNacimiento) {
-        String rfc = "";
-        rfc += apellidoPaterno.substring(0, 2);
-        rfc += apellidoMaterno.substring(0, 1);
-        rfc += nombre.substring(0, 1);
-        rfc += fechaNacimiento.substring(2, 4);
-        rfc += fechaNacimiento.substring(5, 7);
-        rfc += fechaNacimiento.substring(8, 10);
-        return rfc;
-    }
+
     /* Generic Method */
     public static <T> void printArray(T[] array) {
         for (T element : array) {
@@ -132,5 +123,15 @@ public class Utilities {
 
     public <T> void imprimirGenerico(T obj) {
         System.out.println(obj.getClass() + " " + obj);
+    }
+
+    /* read a file and return Stream<String> */
+    public static java.util.stream.Stream<String> readFileCuentas(String path) {
+        try {
+            return java.nio.file.Files.lines(java.nio.file.Paths.get(path));
+        } catch (java.io.IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
     }
 }
