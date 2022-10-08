@@ -1,5 +1,6 @@
 package BancaElectronica;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import static BancaElectronica.Utilities.generateRandomTelephone;
@@ -11,7 +12,7 @@ public class Cliente implements ServicioCuentas, Comparable<Cliente> {
     private String rfc;
     private String telefono;
     private ArrayList<Cuenta> cuentas;
-    private String fechaNacimiento;
+    private LocalDate fechaNacimiento;
 
     public Cliente(int numero, String nombre){
         this.numero = numero;
@@ -20,7 +21,7 @@ public class Cliente implements ServicioCuentas, Comparable<Cliente> {
         cuentas = new ArrayList<Cuenta>();
     }
 
-    public Cliente(int numero, String nombre, Domicilio domicilio, String rfc, String telefono, String fechaNacimiento) {
+    public Cliente(int numero, String nombre, Domicilio domicilio, String rfc, String telefono, LocalDate fechaNacimiento) {
         this.numero = numero;
         this.nombre = nombre;
         this.domicilio = domicilio;
@@ -78,11 +79,11 @@ public class Cliente implements ServicioCuentas, Comparable<Cliente> {
         this.cuentas = cuentas;
     }
 
-    public String getFechaNacimiento() {
+    public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
     /* toString */

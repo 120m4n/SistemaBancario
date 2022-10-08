@@ -1,18 +1,20 @@
 package BancaElectronica;
 
 
+import java.time.LocalDate;
+
 public abstract class  Cuenta implements Comparable<Cuenta> {
     private int numero;
-    private String fechaApertura;
+    private LocalDate fechaApertura;
     private double saldo;
-    private String fechaCancelacion;
+    private LocalDate fechaCancelacion;
 
     public Cuenta(int numero, double saldo) {
         this.numero = numero;
         this.saldo = saldo;
     }
 
-    public Cuenta(int numero, double saldo, String fechaApertura) {
+    public Cuenta(int numero, double saldo, LocalDate fechaApertura) {
         this.numero = numero;
         this.saldo = saldo;
         this.fechaApertura = fechaApertura;
@@ -26,15 +28,15 @@ public abstract class  Cuenta implements Comparable<Cuenta> {
         this.numero = numero;
     }
 
-    public String getFechaApertura() {
+    public LocalDate getFechaApertura() {
         return fechaApertura;
     }
 
-    public String getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return getFechaApertura() ;
     }
 
-    public void setFechaApertura(String fechaApertura) {
+    public void setFechaApertura(LocalDate fechaApertura) {
         this.fechaApertura = fechaApertura;
     }
 
@@ -46,11 +48,11 @@ public abstract class  Cuenta implements Comparable<Cuenta> {
         this.saldo = saldo;
     }
 
-    public String getFechaCancelacion() {
+    public LocalDate getFechaCancelacion() {
         return fechaCancelacion;
     }
 
-    public void setFechaCancelacion(String fechaCancelacion) {
+    public void setFechaCancelacion(LocalDate fechaCancelacion) {
         this.fechaCancelacion = fechaCancelacion;
     }
 

@@ -1,5 +1,7 @@
 package BancaElectronica;
 
+import java.time.LocalDate;
+
 public class CuentaDeCheque extends Cuenta {
 
     private double costoManejoMensual;
@@ -9,7 +11,7 @@ public class CuentaDeCheque extends Cuenta {
         this.costoManejoMensual = costoManejoMensual;
     }
 
-    public CuentaDeCheque(int numero, double saldo, double costoManejoMensual, String fechaApertura) {
+    public CuentaDeCheque(int numero, double saldo, double costoManejoMensual, LocalDate fechaApertura) {
         super(numero, saldo, fechaApertura);
         this.costoManejoMensual = costoManejoMensual;
     }

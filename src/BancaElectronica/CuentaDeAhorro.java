@@ -1,12 +1,14 @@
 package BancaElectronica;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 public class CuentaDeAhorro extends Cuenta {
     private double tasaInteresMensual;
     private double saldoMinimo;
 
-    public CuentaDeAhorro(int numero, double saldo, double tasaInteresMensual, String fechaApertura) {
+    public CuentaDeAhorro(int numero, double saldo, double tasaInteresMensual, LocalDate fechaApertura) {
         super(numero, saldo, fechaApertura);
         this.tasaInteresMensual = tasaInteresMensual;
         this.saldoMinimo = 0;
@@ -15,7 +17,7 @@ public class CuentaDeAhorro extends Cuenta {
         super(numero, saldo);
         this.tasaInteresMensual = tasaInteresMensual;
         this.saldoMinimo = saldoMinimo;
-        this.setFechaApertura(Instant.now().toString());
+        this.setFechaApertura(Instant.now().atZone(ZoneId.of("America/Mexico_City")).toLocalDate());
     }
 
     public double getTasaInteres() {

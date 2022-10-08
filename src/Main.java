@@ -32,12 +32,12 @@ public class Main {
     Cuenta cuenta_5 = new CuentaDeCheque(1, 3000, 1000);
     Cuenta cuenta_6 = new CuentaDeCheque(2, 4000, 500);
 
-    cuenta_1.setFechaApertura("01/01/2020");
-    cuenta_2.setFechaApertura("02/07/2021");
-    cuenta_3.setFechaApertura("03/08/2022");
-    cuenta_4.setFechaApertura("04/09/2020");
-    cuenta_5.setFechaApertura("05/10/2021");
-    cuenta_6.setFechaApertura("06/11/2018");
+    cuenta_1.setFechaApertura(convertStringToDate("01-01-2020"));
+    cuenta_2.setFechaApertura(convertStringToDate("02-07-2021"));
+    cuenta_3.setFechaApertura(convertStringToDate("03-08-2022"));
+    cuenta_4.setFechaApertura(convertStringToDate("04-09-2020"));
+    cuenta_5.setFechaApertura(convertStringToDate("05-10-2021"));
+    cuenta_6.setFechaApertura(convertStringToDate("06-11-2018"));
 
     cliente_1.agregarCuenta(cuenta_1);
     cliente_1.agregarCuenta(cuenta_2);
@@ -75,7 +75,7 @@ public class Main {
     /* consultar domicilios de los clientes cuyas cuentas con fecha de creacion no supere x tiempo*/
     System.out.println("------   consultar domicilios de los clientes cuyas cuentas con fecha de creacion no supere x tiempo ---------");
     //sc.obtenerClientes().stream().filter(c -> c.getCuentas().stream().anyMatch(cuenta -> convertStringToDate(cuenta.getFechaCreacion()).after(convertStringToDate("01/01/2010")))).map(c -> c.getDomicilio()).forEach(System.out::println);
-    sc.obtenerClientes().stream().filter(c -> c.getCuentas().stream().anyMatch(cuenta -> convertStringToDate(cuenta.getFechaCreacion()).after(convertStringToDate("01/07/2021")))).forEach(d->System.out.println(d.getNumero() + " " + d.getNombre() + " " + d.getDomicilio().getCalle()));
+    sc.obtenerClientes().stream().filter(c -> c.getCuentas().stream().anyMatch(cuenta -> cuenta.getFechaCreacion().isAfter(convertStringToDate("01-07-2021")))).forEach(d->System.out.println(d.getNumero() + " " + d.getNombre() + " " + d.getDomicilio().getCalle()));
 
         //sc.obtenerClientes().stream().map(c -> c.getDomicilio()).forEach(System.out::println);
 

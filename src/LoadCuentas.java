@@ -1,7 +1,9 @@
 import BancaElectronica.*;
 
+import java.time.LocalDate;
 import java.util.stream.Stream;
 
+import static BancaElectronica.Utilities.convertStringToDate;
 import static BancaElectronica.Utilities.readFileCuentas;
 
 
@@ -40,7 +42,7 @@ public class LoadCuentas {
             double saldo = Double.parseDouble(datos[2].trim());
             double tasaInteres = Double.parseDouble(datos[3].trim());
             int idCliente = Integer.parseInt(datos[4].trim());
-            String fechaApertura = datos[1].trim();
+            LocalDate fechaApertura = convertStringToDate(datos[1].trim());
             switch (tipoCuenta) {
                 case "CA":
                     CuentaDeAhorro cuentaAhorro = new CuentaDeAhorro(idCuenta, saldo, tasaInteres, fechaApertura);

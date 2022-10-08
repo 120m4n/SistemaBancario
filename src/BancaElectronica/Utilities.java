@@ -1,17 +1,26 @@
 package BancaElectronica;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static java.lang.Integer.parseInt;
 
 public class Utilities {
-    /* convert string date to date */
-    public static java.util.Date convertStringToDate(String date) {
-        java.util.Date dateConverted = null;
-        try {
-            dateConverted = new java.text.SimpleDateFormat("dd/MM/yyyy").parse(date);
-        } catch (java.text.ParseException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return dateConverted;
+    /* convert string date to LocalDate */
+    public static LocalDate convertStringToDate(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return LocalDate.parse(date, formatter);
+    }
+
+    /* print LocalDate in spanish format dd 'de' MMMM 'de' yyyy */
+    public static String printDate(LocalDate date) {
+        return date.format(DateTimeFormatter.ofPattern("dd 'de' MMMM 'de' yyyy"));
+    }
+
+    /* print LocalDateTime in spanish format dd 'de' MMMM 'de' yyyy 'y la hora es ' HH con mm 'minutos'*/
+    public static String printDateTime(LocalDateTime date) {
+        return date.format(DateTimeFormatter.ofPattern("dd 'de' MMMM 'de' yyyy 'y la hora es ' HH con mm 'minutos'"));
     }
     /* genereate random datestring in format dd/MM/yyyy */
     public static String generateRandomDate() {
@@ -98,7 +107,7 @@ public class Utilities {
         double tasadeInteres = Double.parseDouble(metadata[3].trim());
         double costoMantenimiento = Double.parseDouble(metadata[4].trim());
         double saldo = Double.parseDouble(metadata[5].trim());
-        String fechaApertura = metadata[6].trim();
+        LocalDate fechaApertura = convertStringToDate(metadata[6].trim());
         /* switch tipo */
         switch (tipo) {
             case "Ahorro":
