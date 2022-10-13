@@ -143,4 +143,73 @@ public class Utilities {
         }
         return null;
     }
+
+    /* create a string random with the format "CA[1234,12-11-2021,323333,2,1]" */
+    public static String createRandomStringCA() {
+        java.util.Random random = new java.util.Random();
+        String randomString = "CA[";
+        for (int i = 0; i < 4; i++) {
+            randomString += random.nextInt(10);
+        }
+        randomString += ",";
+        randomString += generateRandomDateString();
+        randomString += ",";
+        for (int i = 0; i < 6; i++) {
+            randomString += random.nextInt(10);
+        }
+        randomString += ",";
+        randomString += random.nextInt(10);
+        randomString += ",";
+        randomString += random.nextInt(10);
+        randomString += "]";
+        return randomString;
+    }
+
+    /* create a string random with the format "CC[65478,08-02-2019,98874,200,2]" */
+    public static String createRandomStringCC() {
+        java.util.Random random = new java.util.Random();
+        String randomString = "CC[";
+        for (int i = 0; i < 5; i++) {
+            randomString += random.nextInt(10);
+        }
+        randomString += ",";
+        randomString += generateRandomDateString();
+        randomString += ",";
+        for (int i = 0; i < 5; i++) {
+            randomString += random.nextInt(10);
+        }
+        randomString += ",";
+        randomString += random.nextInt(1000);
+        randomString += ",";
+        randomString += random.nextInt(10);
+        randomString += "]";
+        return randomString;
+    }
+
+    /* generate random string date in the format "dd-MM-yyyy" with zero left in day and months*/
+    public static String generateRandomDateString() {
+        java.util.Random random = new java.util.Random();
+        String randomDate = "";
+        /* generate day string between 1 and 28 */
+        String day = String.format("%02d", random.nextInt(28)+1);
+        /* generate month between 1 and 12 */
+        String month = String.format("%02d", random.nextInt(12-1)+1);
+        /* generate year between 2010 and 2021 */
+        String year = String.valueOf(random.nextInt(2021 - 2010) + 2010);
+        randomDate += day + "-" + month + "-" + year;
+        return randomDate;
+    }
+    /* append lines to a file */
+    public static void appendLinesToFile(String path, java.util.List<String> lines) {
+        try (java.io.BufferedWriter bw = new java.io.BufferedWriter(new java.io.FileWriter(path, true))) {
+            for (String line : lines) {
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (java.io.IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
 }
