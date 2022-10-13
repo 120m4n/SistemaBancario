@@ -33,7 +33,7 @@ public class LoadCuentasHilos {
 
 
         /* Leer el archivo de cuentas y agregar las cuentas a los clientes. */
-        String path = "C:\\Users\\ROMANS\\IdeaProjects\\SistemaBancario\\src\\cuentas.txt";
+        String path = "/Users/120m4n/IdeaProjects/Sesion_3/SistemaBancario/src/cuentas_nuevas.txt";
         Stream<String> lineas = readFileCuentas(path);
 
         /* check if the file is empty */
